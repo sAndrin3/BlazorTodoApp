@@ -1,4 +1,8 @@
 @inject IJSRuntime jsRuntime;
+<EditForm Model="newTodo" OnValidSubmit="submitForm">
+    <DataAnnotationsValidator />
+    @* <ValidationSummary /> *@
+
 <div class="cardh">
     @if(IsEditing){
         <h1>Edit Todo</h1>
@@ -10,11 +14,13 @@
 <div class="todo" style="margin-bottom: 20px;">
     <label for="Title" style="font-weight: bold; display: block;">Title</label>
     <input type="text" class="form" @bind-value=@newTodo.Title id="Title" placeholder="Todo Title" style="width: 40%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;">
+     <ValidationMessage For="@(()=>newTodo.Title)" />
 </div>
 
 <div class="todo" style="margin-bottom: 20px;">
     <label for="Description" style="font-weight: bold; display: block;">Description</label>
     <input type="text" class="form" @bind-value=@newTodo.Description id="Description" placeholder="Todo Description" style="width: 40%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;">
+    <ValidationMessage For="@(()=>newTodo.Description)" />
 </div>
 
 <div class="todo" style="margin-bottom: 20px;">
@@ -26,11 +32,13 @@
         }
         
     </select>
+    <ValidationMessage For="@(()=>newTodo.Priority)" />
 </div>
 
 <div class="todo" style="margin-bottom: 20px;">
-    <label for="Description" style="font-weight: bold; display: block;">Duration</label>
+    <label for="Duration" style="font-weight: bold; display: block;">Duration</label>
     <input type="text" class="form" @bind-value=@newTodo.Duration id="Duration" placeholder="Todo Duration" style="width: 40%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;">
+    <ValidationMessage For="@(()=>newTodo.Duration)" />
 </div>
 <div>
    <button @onclick="@(async () =>
@@ -55,7 +63,7 @@
 }else{
     <p> Add a Todo</p>
 } *@
-
+</EditForm>
 
 @code{
     public TodoDto newTodo = new TodoDto(){
@@ -109,4 +117,9 @@
     {
         jsRuntime.InvokeVoidAsync("ShowAlert", "You have successfully Added a Todo", "success" );
     }
+     private void submitForm()
+    {
+        
+    }
+    
 }

@@ -1,22 +1,61 @@
 ﻿@page "/"
 
-<EditForm model="car" OnValidSubmit = "submitForm">
+
+<EditForm Model="car" OnValidSubmit="submitForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
     <Label>Name</Label>
-    <InputText @bind-Value="@car.Name" class="form-control"/>
+    <InputText @bind-Value="@car.Name" class="form-control" />
+    <ValidationMessage For="@(()=>car.Name)" />
 
-      <Label>Description</Label>
-    <InputText @bind-Value="@car.Description" class="form-control"/>
+    <Label>Description</Label>
+    <InputText @bind-Value="@car.Description" class="form-control" />
+    <ValidationMessage For="@(()=>car.Description)" />
 
-      <Label>Mileage</Label>
-    <InputNumber @bind-Value="@car.Mileage" class="form-control"/>
+    <Label>Mileage</Label>
+    <InputNumber @bind-Value="@car.Mileage" class="form-control" />
+    <ValidationMessage For="@(()=>car.Mileage)" />
 
     <label>Colors</label>
     <InputSelect @bind-Value="@car.Color" class="form-control">
         <option selected>Choose a Color</option>
-        @foreach(var color in colors){
+        @foreach (var color in colors)
+        {
             <option vlaue="@color">@color</option>
         }
     </InputSelect>
+    <ValidationMessage For="@(()=>car.Color)" />
+
+    @* <InputRadioGroup @bind-Value="@car.Color">
+    @foreach(var color in colors){
+    <InputRadio Value="color"/>@color
+
+    }
+    </InputRadioGroup> *@
+    @{
+        var i = 0;
+    }
+
+    @foreach (var make in car.makes)
+    {
+        i++;
+        make.Id = i;
+        <div class="d-flex">
+            <p>@i</p>
+
+            <InputText @bind-Value="@make.ModelName" class="form-control" @onfocusin="addInput" />
+            <button class="btn btn-link" type="button" @onclick="@(()=>car.makes.Remove(make))">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill text-danger"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                </svg>
+            </button>
+            <ValidationMessage For="@(()=>make.ModelName)" />
+        </div>
+    }
+    <button type="button" onclick="@(()=>car.makes.Add(new Make()))" class=" mt-4 btn btn-primary">Add Model </button>
+
 
     <button type="submit" class=" mt-4 btn btn-primary">Submit</button>
     <button type="button" class=" mt-4 btn btn-secondary">Reset</button>
@@ -25,16 +64,23 @@
 @code {
     public CarDto car = new CarDto();
     private List<string> colors = new List<string>(){
-        "Black",
-        "Blue",
-        "Red",
-        "Silver",
-        "White"
-        };
-    private void submitForm(){
+"Black",
+"Blue",
+"Red",
+"Silver",
+"White"
+};
+    private void submitForm()
+    {
         Console.WriteLine(car.Name);
         Console.WriteLine(car.Description);
         Console.WriteLine(car.Mileage);
         Console.WriteLine(car.Color);
+        Console.WriteLine(car.makes.Count);
     }
-} 
+    private void addInput()
+    {
+
+        car.makes.Add(new Make());
+    }
+}

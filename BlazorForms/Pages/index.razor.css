@@ -1,0 +1,15 @@
+validation-message {
+    color: red;
+}
+
+input.invalid,
+textarea.invalid,
+select.invalid {
+    border-color: blue;
+}
+
+input.valid.modified,
+text.valid.modified,
+select.valid.modified {
+    border-color: green;
+}

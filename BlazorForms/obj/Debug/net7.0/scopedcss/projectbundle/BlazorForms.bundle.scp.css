@@ -1,4 +1,19 @@
 /* /Pages/index.razor.rz.scp.css */
+validation-message[b-hc421m5sms] {
+    color: red;
+}
+
+input.invalid[b-hc421m5sms],
+textarea.invalid[b-hc421m5sms],
+select.invalid[b-hc421m5sms] {
+    border-color: blue;
+}
+
+input.valid.modified[b-hc421m5sms],
+text.valid.modified[b-hc421m5sms],
+select.valid.modified[b-hc421m5sms] {
+    border-color: green;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-2kabmiswme] {
     position: relative;
