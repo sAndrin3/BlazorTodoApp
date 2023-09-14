@@ -1,0 +1,40 @@
+﻿@page "/"
+
+<EditForm model="car" OnValidSubmit = "submitForm">
+    <Label>Name</Label>
+    <InputText @bind-Value="@car.Name" class="form-control"/>
+
+      <Label>Description</Label>
+    <InputText @bind-Value="@car.Description" class="form-control"/>
+
+      <Label>Mileage</Label>
+    <InputNumber @bind-Value="@car.Mileage" class="form-control"/>
+
+    <label>Colors</label>
+    <InputSelect @bind-Value="@car.Color" class="form-control">
+        <option selected>Choose a Color</option>
+        @foreach(var color in colors){
+            <option vlaue="@color">@color</option>
+        }
+    </InputSelect>
+
+    <button type="submit" class=" mt-4 btn btn-primary">Submit</button>
+    <button type="button" class=" mt-4 btn btn-secondary">Reset</button>
+
+</EditForm>
+@code {
+    public CarDto car = new CarDto();
+    private List<string> colors = new List<string>(){
+        "Black",
+        "Blue",
+        "Red",
+        "Silver",
+        "White"
+        };
+    private void submitForm(){
+        Console.WriteLine(car.Name);
+        Console.WriteLine(car.Description);
+        Console.WriteLine(car.Mileage);
+        Console.WriteLine(car.Color);
+    }
+} 
