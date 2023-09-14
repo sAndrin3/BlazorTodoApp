@@ -1,7 +1,6 @@
-@page "/search/{SearchTerm}"
-@page "/search/{SearchTerm}/Duration/{MaxDuration:int}"
-
 @inject HttpClient http
+@* @page "/search/{SearchTerm}"
+@page "/search/{SearchTerm}/Duration/{MaxDuration:int}" *@
 
 @if (SearchedTodos.Count == 0)
 {

@@ -1,0 +1,20 @@
+.filters[b-95k82rvndp] {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+
+    .filters label[b-95k82rvndp] {
+        text-transform: uppercase;
+        margin-right: 10px;
+    }
+
+    .filters input[b-95k82rvndp] {
+        margin-right: 20px;
+        width: 100px;
+    }
+
+    .filters button:first-of-type[b-95k82rvndp] {
+        margin-right: 10px;
+    }

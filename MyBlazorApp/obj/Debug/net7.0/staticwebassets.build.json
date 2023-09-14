@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vgFZf5bscvvJialAEBO7IZSfgGO79OEfpZCELdF9FHA=",
+  "Hash": "gqZEHDRkuBSBC7BNRbzcohTfTJ1QVN/EePFiDu+8n1c=",
   "Source": "MyBlazorApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -7155,6 +7155,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/index.html"
+    },
+    {
+      "Identity": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/MyBlazorApp/wwwroot/Js/Index.js",
+      "SourceId": "MyBlazorApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/MyBlazorApp/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "Js/Index.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Js/Index.js"
     },
     {
       "Identity": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/MyBlazorApp/wwwroot/sample-data/weather.json",

@@ -1,3 +1,4 @@
+@inject IJSRuntime jsRuntime;
 <div class="cardh">
     @if(IsEditing){
         <h1>Edit Todo</h1>
@@ -32,8 +33,29 @@
     <input type="text" class="form" @bind-value=@newTodo.Duration id="Duration" placeholder="Todo Duration" style="width: 40%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;">
 </div>
 <div>
-    <button @onclick="@(IsEditing ? UpdateTodo : InsertNewTodo)" class="btn btn-primary">@(IsEditing ? "Update" : "Add")</button>
+   <button @onclick="@(async () =>
+{
+    if (IsEditing)
+    {
+        await UpdateTodo();
+    }
+    else
+    {
+        confirmBox();
+        if (isConfirmed)
+        {
+            await InsertNewTodo();
+        }
+    }
+})" class="btn btn-primary">@(IsEditing ? "Update" : "Add")</button>
+
 </div>
+@* @if(@isConfirmed){
+    <p>Todo Added Succesfully</p>
+}else{
+    <p> Add a Todo</p>
+} *@
+
 
 @code{
     public TodoDto newTodo = new TodoDto(){
@@ -68,5 +90,23 @@
     public async Task UpdateTodo(){
         await onEditTodo.InvokeAsync(newTodo);
         newTodo = new TodoDto();
+    }
+    private bool isConfirmed;
+    private async Task confirmBox(){
+        isConfirmed = await jsRuntime.InvokeAsync<bool>("confirm", "Do you want to Confirm your Todos"); 
+            if(isConfirmed){
+                showSuccess();
+            }else{
+                showError();
+            }
+            
+    }
+    private void showError()
+    {
+        jsRuntime.InvokeVoidAsync("ShowAlert", "Cancelled", "error");
+    }
+    private void showSuccess()
+    {
+        jsRuntime.InvokeVoidAsync("ShowAlert", "You have successfully Added a Todo", "success" );
     }
 }

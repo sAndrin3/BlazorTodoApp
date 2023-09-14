@@ -851,3 +851,4 @@
 /home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/BlazorRouting.pdb
 /home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/ref/BlazorRouting.dll
 /home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/scopedcss/Shared/TodoFilter.razor.rz.scp.css
+/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/scopedcss/Shared/TodoFilter1.razor.rz.scp.css

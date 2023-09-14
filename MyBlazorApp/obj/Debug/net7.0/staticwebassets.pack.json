@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/MyBlazorApp.styles.css"
     },
     {
+      "Id": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/MyBlazorApp/wwwroot/Js/Index.js",
+      "PackagePath": "staticwebassets/Js/Index.js"
+    },
+    {
       "Id": "/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/MyBlazorApp/wwwroot/css/app.css",
       "PackagePath": "staticwebassets/css/app.css"
     },

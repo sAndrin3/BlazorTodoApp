@@ -1,0 +1,57 @@
+@using BlazorRouting.Pages;
+@inject NavigationManager navigation
+<div class="filters">
+    <label for="Duration">Max Duration</label>
+    <input id="MaxDuration"
+           type="number"
+           class="form-control"
+           @bind="_MaxDuration"
+           />
+
+     <label for="Priority">Priority</label>
+    <input id="Priority"
+           type="text"
+           class="form-control"
+           @bind="_priority"
+           />
+
+
+    <button class="btn btn-outline-primary" @onclick="filterTodos">
+        Filter
+    </button>
+    <button class="btn btn-outline-secondary" @onclick="clearTodos">
+        Clear
+    </button>
+</div>
+
+@code {
+    private int _MaxDuration = 0;
+
+    private string _priority = "";
+
+
+    
+
+    [Parameter, EditorRequired]
+
+    public string SearchTerm { get; set; }
+
+  
+
+    private void filterTodos()
+    {
+       // navigation.NavigateTo($"/search/{SearchTerm}/Duration/{_MaxDuration}");
+        var uriwithQuery = navigation.GetUriWithQueryParameters(new Dictionary<string, object?>(){
+            [nameof(TodoSearch1.MaxDuration)] = _MaxDuration == 0 ? null : _MaxDuration,
+            [nameof(TodoSearch1.Priority)] = string.IsNullOrWhiteSpace(_priority) ? null : _priority,
+            });
+            navigation.NavigateTo(uriwithQuery);
+    }
+
+    private void clearTodos()
+    {
+        _MaxDuration = 0;
+        navigation.NavigateTo($"/search/{SearchTerm}");
+    }
+
+}
