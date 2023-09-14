@@ -1,0 +1,24 @@
+@inject HttpClient http
+@page "/"
+
+        @if(Todos.Count==0){
+            <p><i>No Todo in the List</i></p>
+        }else{
+            <TodoSearchInput/>
+    <div class="row">
+        @foreach(var Todo in Todos){
+           <div class="col-3">
+                <SingleTodo TodoDto="Todo"/>
+           </div>
+
+        }
+        </div>
+        }
+    
+
+@code{
+    private List<TodoDto> Todos = new List<TodoDto>();
+    protected override async Task OnInitializedAsync(){
+        Todos = await http.GetFromJsonAsync<List<TodoDto>>("sample-data/Todo.json");
+    }
+}

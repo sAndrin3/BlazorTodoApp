@@ -1,0 +1,26 @@
+@page "/Todos/{id:int}"
+@inject HttpClient http
+
+@if(Todo ==null){
+    <p><i>No Details Found</i></p>
+}else{
+    <div class = "row">
+    <div class = "col-6">
+        <h1>@Todo.Title</h1>
+    </div>
+    <div class="col-6">
+            <h1>@Todo.Description</h1>
+        </div>
+</div>
+}
+
+@code{
+    [Parameter]
+    public int id {get; set; }
+    public TodoDto Todo {get; set; }
+
+    protected override async Task OnInitializedAsync(){
+        var Todos = await http.GetFromJsonAsync<List<TodoDto>>("sample-data/Todo.json");
+        Todo = Todos.Where(x => x.Id == id).FirstOrDefault();
+    }
+}

@@ -1,0 +1,6 @@
+/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/MyBlazorApp2.csproj.AssemblyReference.cache
+/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/MyBlazorApp2.GeneratedMSBuildEditorConfig.editorconfig
+/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/MyBlazorApp2.AssemblyInfoInputs.cache
+/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/MyBlazorApp2.AssemblyInfo.cs
+/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/MyBlazorApp2.csproj.CoreCompileInputs.cache
+/home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/obj/Debug/net7.0/MyBlazorApp2.MvcApplicationPartsAssemblyInfo.cache

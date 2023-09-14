@@ -1,0 +1,67 @@
+@page "/"
+
+<div class="row">
+    <div class="col-4">
+        @* <AddList AddnewTodo="AddNewTodo"/> *@
+          @if (selectedTodo != null)
+    {
+        <AddList onEditTodo="EditTodo" EditTodoProp="selectedTodo" />
+    }
+    else
+    {
+        <AddList AddnewTodo="AddNewTodo" onEditTodo="EditTodo" />
+    }
+
+    </div>
+    <div class="col-8">
+        @if(Todos.Count==0){
+            <p><i>No Todo in the List</i></p>
+        }else{
+         <div class="row">
+        @foreach(var Todo in Todos){
+           
+                <DisplayList Tododto="Todo" DeleteId="DeleteTodo" OnEditTodo="EditTodo"/>
+           
+        }
+         </div>
+        }
+    </div>
+</div>
+
+@code{
+    private List<TodoDto> Todos = new List<TodoDto>()
+        {
+            new TodoDto()
+            {
+                Id = Guid.NewGuid(),
+                Title = "Todo",
+                Description = "Done",
+                Priority="High",
+                Duration = "2days"
+            },
+            new TodoDto()
+            {
+                Id = Guid.NewGuid(),
+                Title = "TodoList",
+                Description = "DoneList",
+                Priority="Moderate",
+                Duration = "4days"
+            }
+        };
+        public void AddNewTodo(TodoDto Todo){
+            this.Todos.Add(Todo);
+        }
+
+        public void DeleteTodo (Guid id){
+            try{
+                var TodoToDelete = this.Todos.Find(x => x.Id ==id);
+                this.Todos.Remove(TodoToDelete);
+            }catch(Exception ex){
+                Console.WriteLine(ex.Message);
+            }
+        }
+        private TodoDto selectedTodo;
+        public void EditTodo (TodoDto todo){
+            selectedTodo = todo;
+        }
+}

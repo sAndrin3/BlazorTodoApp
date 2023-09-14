@@ -1,0 +1,42 @@
+@inject NavigationManager navigation
+<div class="filters">
+    <label for="Duration">Max Duration</label>
+    <input id="MaxDuration"
+           type="number"
+           class="form-control"
+           @bind="_MaxDuration"
+           />
+
+
+    <button class="btn btn-outline-primary" @onclick="filterTodos">
+        Filter
+    </button>
+    <button class="btn btn-outline-secondary" @onclick="clearTodos">
+        Clear
+    </button>
+</div>
+
+@code {
+    private int _MaxDuration = 0;
+
+
+    
+
+    [Parameter, EditorRequired]
+
+    public string SearchTerm { get; set; }
+
+  
+
+    private void filterTodos()
+    {
+        navigation.NavigateTo($"/search/{SearchTerm}/Duration/{_MaxDuration}");
+    }
+
+    private void clearTodos()
+    {
+        _MaxDuration = 0;
+        navigation.NavigateTo($"/search/{SearchTerm}");
+    }
+
+}

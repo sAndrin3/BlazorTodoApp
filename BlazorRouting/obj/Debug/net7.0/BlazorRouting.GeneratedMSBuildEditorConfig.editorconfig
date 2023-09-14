@@ -1,0 +1,57 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BlazorRouting
+build_property.RootNamespace = BlazorRouting
+build_property.ProjectDir = /home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/petrolhead/Documents/Jitu-Codes./C#dotnet/Blazor Practice/BlazorRouting
+build_property._RazorSourceGeneratorDebug = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/Pages/TodoDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG9kb0RldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/Pages/TodoList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG9kb0xpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/Pages/TodoSearch.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG9kb1NlYXJjaC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/Shared/SingleTodo.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1NpbmdsZVRvZG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/Shared/TodoSearchInput.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1RvZG9TZWFyY2hJbnB1dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/Shared/Header.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0hlYWRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-lxc0h9fdel
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ga9pvp4oom
+
+[/home/petrolhead/Documents/Jitu-Codes./C\#dotnet/Blazor Practice/BlazorRouting/Shared/TodoFilter.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1RvZG9GaWx0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-avd8u89thm

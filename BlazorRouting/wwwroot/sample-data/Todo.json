@@ -1,0 +1,66 @@
+[
+    {
+      "Id": 2,
+      "Title": "Programming",
+      "Description": "C# dotnet",
+      "Priority": "Medium",
+      "Duration": 1
+    },
+    {
+      "Id": 3,
+      "Title": "Meeting",
+      "Description": "Discuss project plans",
+      "Priority": "High",
+      "Duration": 2
+    },
+    {
+      "Id": 4,
+      "Title": "Exercise",
+      "Description": "Go for a run",
+      "Priority": "Medium",
+      "Duration": 30
+    },
+    {
+      "Id": 5,
+      "Title": "Programming",
+      "Description": "Blazor",
+      "Priority": "Low",
+      "Duration": 1
+    },
+    {
+      "Id": 6,
+      "Title": "Work",
+      "Description": "Complete the report",
+      "Priority": "High",
+      "Duration": 4
+    },
+    {
+      "Id": 7,
+      "Title": "Programming",
+      "Description": "Python",
+      "Priority": "Low",
+      "Duration": 2
+    },
+    {
+      "Id": 8,
+      "Title": "Cooking",
+      "Description": "Prepare dinner",
+      "Priority": "Medium",
+      "Duration": 1
+    },
+    {
+      "Id": 9,
+      "Title": "Movie Night",
+      "Description": "Watch a new movie",
+      "Priority": "Low",
+      "Duration": 3
+    },
+    {
+      "Id": 10,
+      "Title": "Vacation Planning",
+      "Description": "Research vacation destinations",
+      "Priority": "High",
+      "Duration": 1
+    }
+  ]
+  

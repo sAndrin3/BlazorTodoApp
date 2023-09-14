@@ -1,0 +1,68 @@
+@page "/search/{SearchTerm}"
+@page "/search/{SearchTerm}/Duration/{MaxDuration:int}"
+
+@inject HttpClient http
+
+@if (SearchedTodos.Count == 0)
+{
+    <p><i>No Todo in the List</i></p>
+}
+else
+{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Search</li>
+        </ol>
+    </nav>
+    <h1>Results for @SearchTerm</h1>
+    <TodoFilter SearchTerm="@SearchTerm" />
+    <div class="row">
+         @foreach (var Todo in SearchedTodos)
+        {
+
+            <div class="col-3">
+
+                <SingleTodo TodoDto="Todo" />
+
+            </div>
+
+        }
+    </div>
+
+}
+
+@code {
+    [Parameter]
+    public string? SearchTerm { get; set; }
+
+    [Parameter]
+    public int? MaxDuration { get; set; }
+
+    private List<TodoDto> filteredTodos = new List<TodoDto>();
+    private List<TodoDto> SearchedTodos = new List<TodoDto>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var Todos = await http.GetFromJsonAsync<List<TodoDto>>("sample-data/Todo.json");
+        SearchedTodos = Todos.Where(
+            Todo => Todo.Title.ToLower().Contains(SearchTerm.ToLower()) || Todo.Description.ToLower().Contains(SearchTerm.ToLower())
+        ).ToList();
+        filteredTodos = SearchedTodos;
+    }
+
+    protected override void OnParametersSet()
+    {
+        if(SearchedTodos.Any() && MaxDuration > 0)
+        {
+            //filter
+            SearchedTodos = filteredTodos.Where(x => x.Duration == MaxDuration).ToList();
+        }
+        else if( SearchedTodos.Any() && MaxDuration is null)
+        {
+            SearchedTodos = filteredTodos;
+        }
+        }
+
+       
+}

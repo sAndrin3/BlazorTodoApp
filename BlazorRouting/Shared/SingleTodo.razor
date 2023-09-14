@@ -1,0 +1,27 @@
+@inject NavigationManager navigationManager
+<div class="card  m-2" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">@TodoDto.Title</h5>
+    <p class="card-text">@TodoDto.Description</p>
+    <div class="cardbtm">
+        <span>@TodoDto.Priority</span>
+        <br/>
+        <span>@TodoDto.Duration</span>
+        <br>
+        <span>@TodoDto.CreatedAt</span>
+        <br>
+        @* <a href="@($"/Todos/{TodoDto.Id}")" class="btn btn-primary">Details</a> *@
+        @* <button class="btn btn-secondary" @onclick="navigatetoTodo">See More</button> *@
+    </div>
+
+  </div>
+</div>
+@code{
+    [Parameter]
+    public TodoDto TodoDto {get; set; } 
+
+    private void navigatetoTodo(){
+      navigationManager.NavigateTo($"/Todos/{TodoDto.Id}");
+    }
+
+}

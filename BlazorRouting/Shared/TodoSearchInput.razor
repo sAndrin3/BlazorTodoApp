@@ -1,0 +1,21 @@
+@inject NavigationManager navigation
+<div class="jumbotron">
+    <h1 class="display-4 text-center">Welcome to Groopl TodoApp</h1>
+    <p class="lead text-center">List your Todos </p>
+    <p class="mt-4">
+        <input type="text"
+                @bind="_searchTerm"
+                @bind:event="oninput"
+                @onkeydown="SearchForTodo"
+               placeholder="Search for a Todo..."
+               class="form-control form-control-lg" />
+    </p>
+
+</div>
+@code{
+    private string _searchTerm = "";
+    private void SearchForTodo(KeyboardEventArgs args){
+        if(args.Key != "Enter") return;
+        navigation.NavigateTo($"/search/{_searchTerm}");
+    }
+}

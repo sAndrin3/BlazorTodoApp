@@ -1,0 +1,72 @@
+<div class="cardh">
+    @if(IsEditing){
+        <h1>Edit Todo</h1>
+    }
+    else{
+        <h1> Add Todo</h1>
+    }
+</div>
+<div class="todo" style="margin-bottom: 20px;">
+    <label for="Title" style="font-weight: bold; display: block;">Title</label>
+    <input type="text" class="form" @bind-value=@newTodo.Title id="Title" placeholder="Todo Title" style="width: 40%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;">
+</div>
+
+<div class="todo" style="margin-bottom: 20px;">
+    <label for="Description" style="font-weight: bold; display: block;">Description</label>
+    <input type="text" class="form" @bind-value=@newTodo.Description id="Description" placeholder="Todo Description" style="width: 40%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;">
+</div>
+
+<div class="todo" style="margin-bottom: 20px;">
+    <label for="Priority" style="font-weight: bold; display: block;">Priority</label>
+    <select class="form-control" @bind="@newTodo.Priority" style="width: 40%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;">
+        <option selected>Select priority</option>
+        @foreach(var Priority in Priority){
+            <option value="@Priority">@Priority</option>
+        }
+        
+    </select>
+</div>
+
+<div class="todo" style="margin-bottom: 20px;">
+    <label for="Description" style="font-weight: bold; display: block;">Duration</label>
+    <input type="text" class="form" @bind-value=@newTodo.Duration id="Duration" placeholder="Todo Duration" style="width: 40%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px;">
+</div>
+<div>
+    <button @onclick="@(IsEditing ? UpdateTodo : InsertNewTodo)" class="btn btn-primary">@(IsEditing ? "Update" : "Add")</button>
+</div>
+
+@code{
+    public TodoDto newTodo = new TodoDto(){
+        Id = Guid.NewGuid()
+    };
+    [Parameter]
+    public EventCallback<TodoDto> AddnewTodo {get; set; }
+
+    [Parameter]
+    public EventCallback<TodoDto> onEditTodo {get; set; }
+
+    private bool IsEditing = false;
+    [Parameter]
+    public TodoDto EditTodoProp{
+        get => newTodo;
+        set{
+            newTodo = value;
+            IsEditing = value !=null;
+        }
+    }
+    private List<string> Priority = new List<string>
+        {
+            "High",
+            "Moderate",
+            "Low"
+        };
+
+    public async Task InsertNewTodo(){
+        await AddnewTodo.InvokeAsync(newTodo);
+        newTodo= new TodoDto();
+    }
+    public async Task UpdateTodo(){
+        await onEditTodo.InvokeAsync(newTodo);
+        newTodo = new TodoDto();
+    }
+}
